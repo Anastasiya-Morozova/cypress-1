@@ -8,7 +8,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cy:run:dash": "npx cypress run --record --key 9e66717b-b5fc-4344-b29d-470d99980ae0"
+    "cy:run:dash": "npx cypress run --record --key 9e66717b-b5fc-4344-b29d-470d99980ae0",
+    "cy:run:stage:dash": "npx cypress run --config-file cypress.config.stage.js --record --key 9e66717b-b5fc-4344-b29d-470d99980ae0"
   },
   "keywords": [
     "cypress"

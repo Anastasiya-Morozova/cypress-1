@@ -1,10 +1,10 @@
-describe("Header elements work correctly", () => {
-  beforeEach("Login as a student", () => {
-    cy.visit("/login");
-    cy.get("#username").type("qwerty2");
-    cy.get("#password").type("qwerty2");
-    cy.get('[data-cy="submit"]').click();
-  });
+  describe("Header elements work correctly", () => {
+    beforeEach("Login as a student", () => {
+      cy.visit("/login");
+      cy.get("#username").type(Cypress.config('username'));
+      cy.get("#password").type(Cypress.config('password'));
+      cy.get('[data-cy="submit"]').click();
+    });
   it("Test1: Check on nav bar elements existing", () => {
     cy.get("li.nav-item a").contains("span", "Home").should("exist");
     cy.get('[data-cy="entity"]').should("exist");
