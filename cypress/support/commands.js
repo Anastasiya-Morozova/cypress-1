@@ -23,3 +23,19 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add("login", (username, password) => {
+    cy.visit("/login");
+    cy.get("#username").type(username);
+    cy.get("#password").type(password);
+    cy.get('[data-cy="submit"]').click();
+  });
+  
+  Cypress.Commands.add("navigateTo", (selector, url) => {
+    cy.get(selector).click();
+    cy.location("pathname").should("eq", url);
+  });
+  
+Cypress.Commands.add("elementShouldExist", (selector) => {
+    cy.get(selector).should("exist");
+  });
+  
