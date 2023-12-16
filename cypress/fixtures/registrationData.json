@@ -1,0 +1,63 @@
+[
+  {
+    "username": "",
+    "email": "helloworld@hello.com",
+    "firstPassword": "qwerty!123",
+    "secondPassword": "qwerty!123"
+  },
+  {
+    "username": "Hello",
+    "email": "helloworld@hellocom",
+    "firstPassword": "qwerty!123",
+    "secondPassword": "qwerty!123"
+  },
+  {
+    "username": "Hello",
+    "email": "helloworld@hellocom",
+    "firstPassword": "qwerty!123",
+    "secondPassword": "qwerty123"
+  },
+  {
+    "username": "Hello",
+    "email": "helloworld@hello.com",
+    "firstPassword": "qwe",
+    "secondPassword": "qwe"
+  },
+  {
+    "username": "Hello",
+    "email": "helloworld@hello.com",
+    "firstPassword": "Morningsunshinesovercalmsea,paintingskyinvibranthues.Anewday'shopewhispersinthebreqwertyqwertyqwerty",
+    "secondPassword": "Morningsunshinesovercalmsea,paintingskyinvibranthues.Anewday'shopewhispersinthebreqwertyqwertyqwerty"
+  },
+
+  {
+    "username": "Hello",
+    "email": "",
+    "firstPassword": "qwerty!123",
+    "secondPassword": "qwerty!123"
+  },
+  {
+    "username": "Hello",
+    "email": "helloworld@hello.com",
+    "firstPassword": "",
+    "secondPassword": "qwerty!123"
+  },
+  {
+    "username": "Hello",
+    "email": "",
+    "firstPassword": "",
+    "secondPassword": "qwerty!123"
+  },
+  {
+    "username": "",
+    "email": "helloworld@hello.com",
+    "firstPassword": "",
+    "secondPassword": "qwerty!123"
+  },
+  {
+    "username": "qwerty2",
+    "email": "qwerty2@qw.qw",
+    "firstPassword": "qwerty2",
+    "secondPassword": "qwerty2"
+  }
+]

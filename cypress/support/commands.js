@@ -24,18 +24,51 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 Cypress.Commands.add("login", (username, password) => {
-    cy.visit("/login");
+  cy.visit("/login");
+
+  if (username !== "") {
     cy.get("#username").type(username);
+  }
+
+  if (password !== "") {
     cy.get("#password").type(password);
-    cy.get('[data-cy="submit"]').click();
-  });
-  
-  Cypress.Commands.add("navigateTo", (selector, url) => {
-    cy.get(selector).click();
-    cy.location("pathname").should("eq", url);
-  });
-  
+  }
+
+  cy.get('[data-cy="submit"]').click();
+});
+
+Cypress.Commands.add("navigateTo", (selector, url) => {
+  cy.get(selector).click();
+  cy.location("pathname").should("eq", url);
+});
+
 Cypress.Commands.add("elementShouldExist", (selector) => {
-    cy.get(selector).should("exist");
-  });
-  
+  cy.get(selector).should("exist");
+});
+
+
+Cypress.Commands.add("elementShouldNotExist", (selector) => {
+  cy.get(selector).should('not.exist');
+});
+
+Cypress.Commands.add("registration", (username, email, password, confirmPassword) => {
+  cy.visit("/account/register");
+
+  if (username !== "") {
+    cy.get("#username").type(username);
+  }
+
+  if (email !== "") {
+    cy.get("#email").type(email);
+  }
+
+  if (password !== "") {
+    cy.get("#firstPassword").type(password);
+  }
+
+  if (confirmPassword !== "") {
+    cy.get("#secondPassword").type(confirmPassword);
+  }
+
+  cy.get('[data-cy="submit"]').click();
+});
