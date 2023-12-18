@@ -1,0 +1,6 @@
+{
+  "usernameField": "#username",
+  "passwordField": "#password",
+  "submitBtn": "[data-cy='submit']",
+  "errorElement": "[data-cy='loginError']"
+}

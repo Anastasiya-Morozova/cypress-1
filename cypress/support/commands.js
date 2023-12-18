@@ -72,3 +72,15 @@ Cypress.Commands.add("registration", (username, email, password, confirmPassword
 
   cy.get('[data-cy="submit"]').click();
 });
+
+Cypress.Commands.add("signOut", () => {
+  cy.get('[data-cy="accountMenu"]').click();
+  cy.get('[data-cy="logout"]').click()
+})
+
+Cypress.Commands.add("changePassword", (oldPassword, newPassword)=>{
+  cy.get("#currentPassword").type(oldPassword),
+  cy.get("#newPassword").type(newPassword),
+  cy.get("#confirmPassword").type(newPassword),
+  cy.get("[data-cy='submit']").click()
+})

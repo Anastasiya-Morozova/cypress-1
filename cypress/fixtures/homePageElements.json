@@ -1,0 +1,5 @@
+{
+  "accountList": "[data-cy='accountMenu']",
+  "passwordBtn": "[data-cy='passwordItem']",
+  "signOutBtn": "[data-cy='logout']"
+}
