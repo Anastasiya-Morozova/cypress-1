@@ -12,11 +12,14 @@
     "cy:run:stage:dash": "npx cypress run --config-file cypress.config.stage.js --record --key 9e66717b-b5fc-4344-b29d-470d99980ae0",
     "cy:run:chrome": "npx cypress run --browser chrome --config-file cypress.config.js --record --key 9e66717b-b5fc-4344-b29d-470d99980ae0",
     "cy:run:electron": "npx cypress run --browser electron --config-file cypress.config.js --record --key 9e66717b-b5fc-4344-b29d-470d99980ae0",
-    "cy:run:browsers":  "npm run cy:run:chrome && npm run cy:run:electron"
+    "cy:run:browsers": "npm run cy:run:chrome && npm run cy:run:electron"
   },
   "keywords": [
     "cypress"
   ],
   "author": "AMorozova",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^8.3.1"
+  }
 }
