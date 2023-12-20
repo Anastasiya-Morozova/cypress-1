@@ -22,6 +22,9 @@
 //
 //
 // -- This will overwrite an existing command --
+
+//import { method } from "cypress/types/bluebird";
+
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 Cypress.Commands.add("login", (username, password) => {
   cy.visit("/login");
@@ -46,29 +49,53 @@ Cypress.Commands.add("elementShouldExist", (selector) => {
   cy.get(selector).should("exist");
 });
 
-
 Cypress.Commands.add("elementShouldNotExist", (selector) => {
-  cy.get(selector).should('not.exist');
+  cy.get(selector).should("not.exist");
 });
 
-Cypress.Commands.add("registration", (username, email, password, confirmPassword) => {
-  cy.visit("/account/register");
+Cypress.Commands.add(
+  "registration",
+  (username, email, password, confirmPassword) => {
+    cy.visit("/account/register");
 
-  if (username !== "") {
-    cy.get("#username").type(username);
+    if (username !== "") {
+      cy.get("#username").type(username);
+    }
+
+    if (email !== "") {
+      cy.get("#email").type(email);
+    }
+
+    if (password !== "") {
+      cy.get("#firstPassword").type(password);
+    }
+
+    if (confirmPassword !== "") {
+      cy.get("#secondPassword").type(confirmPassword);
+    }
+
+    cy.get('[data-cy="submit"]').click();
   }
+);
 
-  if (email !== "") {
-    cy.get("#email").type(email);
+Cypress.Commands.add(
+  "customRequest",
+  (requestType, urlMethod, bodyJson, token) => {
+    if (requestType === "GET") {
+      cy.request({
+        method: requestType,
+        url: `https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/${urlMethod}`,
+        headers: token ? { Authorization: "Bearer " + token } : undefined,
+        failOnStatusCode: false,
+      });
+    } else {
+      cy.request({
+        method: requestType,
+        url: `https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/${urlMethod}`,
+        headers: token ? { Authorization: "Bearer " + token } : undefined,
+        body: bodyJson,
+        failOnStatusCode: false,
+      });
+    }
   }
-
-  if (password !== "") {
-    cy.get("#firstPassword").type(password);
-  }
-
-  if (confirmPassword !== "") {
-    cy.get("#secondPassword").type(confirmPassword);
-  }
-
-  cy.get('[data-cy="submit"]').click();
-});
+);
