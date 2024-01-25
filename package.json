@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "cypress": "^13.6.1"
+    "cypress": "^13.6.1",
+    "package": "^1.0.1"
   },
   "name": "cypress-1",
   "version": "1.0.0",
@@ -8,11 +9,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cy:run:dash": "npx cypress run --record --key 9e66717b-b5fc-4344-b29d-470d99980ae0",
-    "cy:run:stage:dash": "npx cypress run --config-file cypress.config.stage.js --record --key 9e66717b-b5fc-4344-b29d-470d99980ae0",
-    "cy:run:chrome": "npx cypress run --browser chrome --config-file cypress.config.js --record --key 9e66717b-b5fc-4344-b29d-470d99980ae0",
-    "cy:run:electron": "npx cypress run --browser electron --config-file cypress.config.js --record --key 9e66717b-b5fc-4344-b29d-470d99980ae0",
-    "cy:run:browsers": "npm run cy:run:chrome && npm run cy:run:electron"
+    "cy:spec1": "npx cypress run --config-file \"./cypress.config.js\"  --record --key 9e66717b-b5fc-4344-b29d-470d99980ae0 --spec \"cypress/e2e/9.1.1/api_tests.cy.js\"",
+    "cy:spec2": "npx cypress run --config-file \"./cypress.config.js\"  --record --key 9e66717b-b5fc-4344-b29d-470d99980ae0 --spec \"cypress/e2e/9.1.1/header_elements_student.cy.js\"",
+    "cy:parallel": "concurrently \"npm run cy:spec1 -- --browser chrome --group chrome --parallel --ci-build-id $BUILD_ID\" \"npm run cy:spec2 -- --browser electron --group electron --parallel --ci-build-id $BUILD_ID\""
   },
   "keywords": [
     "cypress"
@@ -20,6 +19,7 @@
   "author": "AMorozova",
   "license": "ISC",
   "devDependencies": {
-    "@faker-js/faker": "^8.3.1"
+    "@faker-js/faker": "^8.3.1",
+    "concurrently": "^8.2.2"
   }
 }

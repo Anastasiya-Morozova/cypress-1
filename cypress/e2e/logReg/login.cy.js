@@ -1,4 +1,4 @@
-const testData = require("../../fixtures/loginData.json");
+const testData = require("../../../fixtures/loginData.json");
 
 describe("Login tests", () => {
   it("Test 1: login with valid data", () => {
