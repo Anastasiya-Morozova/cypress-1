@@ -9,9 +9,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "auth-xray": "curl -H \"Content-Type: application/json\" -X POST --data @\"cloud_auth.json\" https://xray.cloud.getxray.app/api/v2/authenticate --ssl-no-revoke -k",
+    "import-reports": "curl -H \"Content-Type: text/xml\" -X POST -H \"Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnQiOiJmODU1YjI3MS1iNDY2LTNhOWMtODk1MC1mM2NhZTQyNmY5OTQiLCJhY2NvdW50SWQiOiI2M2VlMGM3MGJjMGY5YjNhMTZmZDA1OTMiLCJpc1hlYSI6ZmFsc2UsImlhdCI6MTcwNjk3Nzg5NCwiZXhwIjoxNzA3MDY0Mjk0LCJhdWQiOiJENjY2RDZDNDA2NkU0MzBDOTkzMTUwNTcyODZFNTY5NiIsImlzcyI6ImNvbS54cGFuZGl0LnBsdWdpbnMueHJheSIsInN1YiI6IkQ2NjZENkM0MDY2RTQzMEM5OTMxNTA1NzI4NkU1Njk2In0.F79Ll4wGBpjS6YsAwbbkqzayLxKc7rlga1BJyU_-evg\"  --data @\"test-results.xml\" https://xray.cloud.getxray.app/api/v2/import/execution/junit?projectKey=TES -k",
     "cy:spec1": "npx cypress run --config-file \"./cypress.config.js\"  --record --key 9e66717b-b5fc-4344-b29d-470d99980ae0 --spec \"cypress/e2e/9.1.1/api_tests.cy.js\"",
     "cy:spec2": "npx cypress run --config-file \"./cypress.config.js\"  --record --key 9e66717b-b5fc-4344-b29d-470d99980ae0 --spec \"cypress/e2e/9.1.1/header_elements_student.cy.js\"",
-    "cy:parallel": "concurrently \"npm run cy:spec1 -- --browser chrome --group chrome --parallel --ci-build-id $BUILD_ID\" \"npm run cy:spec2 -- --browser electron --group electron --parallel --ci-build-id $BUILD_ID\""
+    "cy:parallel": "concurrently \"npm run cy:spec1 -- --browser chrome --group chrome --parallel --ci-build-id %BUILD_ID%\" \"npm run cy:spec2 -- --browser electron --group electron --parallel --ci-build-id %BUILD_ID%\""
   },
   "keywords": [
     "cypress"
@@ -20,6 +22,7 @@
   "license": "ISC",
   "devDependencies": {
     "@faker-js/faker": "^8.3.1",
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "mocha-junit-reporter": "^2.2.1"
   }
 }

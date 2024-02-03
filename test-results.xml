@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="7.100" tests="1" failures="1">
+  <testsuite name="Root Suite" timestamp="2024-02-03T16:55:11" tests="0" file="cypress\e2e\3-sqlverifier\verifierLoadTest.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Verifier Page Load Test" timestamp="2024-02-03T16:55:11" tests="1" time="7.097" failures="1">
+    <testcase name="Verifier Page Load Test successfully loads Verifier page" time="0.000" classname="successfully loads Verifier page">
+      <failure message="Timed out retrying after 4000ms: Expected to find element: `.col-md-19`, but never found it." type="AssertionError"><![CDATA[AssertionError: Timed out retrying after 4000ms: Expected to find element: `.col-md-19`, but never found it.
+    at Context.eval (webpack://cypress-1/./cypress/e2e/3-sqlverifier/verifierLoadTest.cy.js:4:27)]]></failure>
+    </testcase>
+  </testsuite>
+</testsuites>
